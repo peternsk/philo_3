@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_statement.c                                  :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/15 14:51:48 by peternsaka       ###   ########.fr       */
+/*   Created: 2024/01/15 12:30:22 by peternsaka        #+#    #+#             */
+/*   Updated: 2024/01/15 14:32:00 by peternsaka       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-void	print_statement(t_philo *philo, char *stmt)
-{
-	long time;
+/*
+	time since the begining on computer.
+*/
 
-	time = /* function gettimeofday - time exc*/
-	pthread_mutex_lock(&philo->glb_s->action->writing);
-	printf("philo  %ld %d %s\n", /* time*/ philo->id, stmt);
-	pthread_mutex_unlock(&philo->glb_s->action->writing);
-}
+int main(void)
+{
+	struct timeval now_time;
+	gettimeofday(&now_time, NULL);
+	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec, now_time.tv_usec);
+	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec * 1000, now_time.tv_usec * 1000);
+} 
