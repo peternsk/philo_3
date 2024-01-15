@@ -1,0 +1,65 @@
+====> init 3
+=====> init_philo 3
+platon ID  1
+platon right fork  1
+platon left fork  0
+platon ID  2
+platon right fork  2
+platon left fork  1
+platon ID  3
+platon right fork  0
+platon left fork  2
+=====> start_thread 3
+philo 1  has the left fork 
+philo 1  has the right fork
+philo 3  has the left fork 
+philo 1  is eating 🍝
+philo ID 1 num of plate 1
+philo 1  has release the left fork
+philo 1  has release the right fork
+philo 1  is thinking 🧠
+philo 3  has the right fork
+philo 2  has the left fork 
+philo 3  is eating 🍝
+philo ID 3 num of plate 1
+philo 3  has release the left fork
+philo 3  has release the right fork
+philo 3  is thinking 🧠
+philo 2  has the right fork
+philo 1  has the left fork 
+philo 2  is eating 🍝
+philo ID 2 num of plate 1
+philo 2  has release the left fork
+philo 2  has release the right fork
+philo 2  is thinking 🧠
+philo 1  has the right fork
+philo 3  has the left fork 
+philo 1  is eating 🍝
+ philo 1  is full 🍉
+philo 1  has release the left fork
+philo 1  has release the right fork
+philo 1  is thinking 🧠
+philo 3  has the right fork
+philo 2  has the left fork 
+philo 3  is eating 🍝
+ philo 3  is full 🍉
+philo 3  has release the left fork
+philo 3  has release the right fork
+philo 3  is thinking 🧠
+philo 2  has the right fork
+philo 1  has the left fork 
+philo 2  is eating 🍝
+ philo 2  is full 🍉
+philo 2  has release the left fork
+philo 2  has release the right fork
+philo 2  is thinking 🧠
+philo 1  has the right fork
+THEY ARE ALL DONE EATING MY GUY !!!
+ ===>> voila !!!!!!!!!!!!!
+philo 1  is eating 🍝
+ philo 1  is full 🍉
+philo 1  has release the left fork
+philo 1  has release the right fork
+philo 1  is thinking 🧠
+ ===>> voila !!!!!!!!!!!!!
+ ===>> voila !!!!!!!!!!!!!

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/12 13:11:58 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/13 01:15:44 by peternsaka       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	eat_func(t_philo *philo) // a travailler
 	count_plate(philo);
 	pthread_mutex_unlock(&philo->glb_s->action->eating);
 	
-	//unlock
+	//unlocc
 	pthread_mutex_unlock(&philo->l_fork->fork);
 	print_statement(philo, RL_FORK);
 	pthread_mutex_unlock(&philo->r_fork->fork);
@@ -62,22 +62,41 @@ void	pause_func(t_philo *philo) // a travailler
 	usleep(philo->glb_s->time_to_eat * 2);
 }
 
-void	*simulation(void *arg) // a travailler
-{
-	t_philo *philo;
-	philo = (t_philo *)arg;
-	printf("=====> simulation %d\n", philo->glb_s->n_of_p);
+// void	*simulation(void *arg) // a travailler
+// {
+// 	t_philo *philo;
+// 	philo = (t_philo *)arg;
 	
-	pthread_mutex_lock(&philo->glb_s->action->mtx_plate);
-	while(philo->glb_s->omni_philo->all_full == false)
-	{
-		pthread_mutex_unlock(&philo->glb_s->action->mtx_plate);
-		eat_func(philo);
-		pause_func(philo);
-	}
-	pthread_mutex_unlock(&philo->glb_s->action->mtx_plate);
-	printf(" voila !!!!!!!!!!!!!\n");
-	return(0);
-}
+// 	pthread_mutex_lock(&philo->glb_s->action->check_philos);
+// 	while(philo->glb_s->omni_philo->all_full == false)
+// 	{
+// 		pthread_mutex_unlock(&philo->glb_s->action->check_philos);
+// 		eat_func(philo);
+// 		pause_func(philo);
+// 	}
+// 	pthread_mutex_unlock(&philo->glb_s->action->check_philos);
+// 	printf(" ===>> voila !!!!!!!!!!!!!\n");
+// 	return(0);
+// }
 
+void *simulation(void *arg)
+{
+    t_philo *philo;
+    philo = (t_philo *)arg;
+
+    while (1)
+	{
+        pthread_mutex_lock(&philo->glb_s->action->check_philos);
+        if (philo->glb_s->omni_philo->all_full)
+		{
+            pthread_mutex_unlock(&philo->glb_s->action->check_philos);
+            break;
+        }
+        pthread_mutex_unlock(&philo->glb_s->action->check_philos);
+        eat_func(philo);
+        pause_func(philo);
+    }
+    printf(" ===>> voila !!!!!!!!!!!!!\n");
+    return NULL;
+}
 
