@@ -1,5 +1,7 @@
-====> init 3
-=====> init_philo 3
+time : 1705416946896
+		1705416878869
+====> init 10
+=====> init_philo 10
 platon ID  1
 platon right fork  1
 platon left fork  0
@@ -7,18 +9,45 @@ platon ID  2
 platon right fork  2
 platon left fork  1
 platon ID  3
-platon right fork  0
+platon right fork  3
 platon left fork  2
-=====> start_thread 3
+platon ID  4
+platon right fork  4
+platon left fork  3
+platon ID  5
+platon right fork  5
+platon left fork  4
+platon ID  6
+platon right fork  6
+platon left fork  5
+platon ID  7
+platon right fork  7
+platon left fork  6
+platon ID  8
+platon right fork  8
+platon left fork  7
+platon ID  9
+platon right fork  9
+platon left fork  8
+platon ID  10
+platon right fork  0
+platon left fork  9
+=====> start_thread 10
 philo 1  has the left fork 
 philo 1  has the right fork
 philo 3  has the left fork 
+philo 3  has the right fork
+philo 5  has the left fork 
+philo 5  has the right fork
+philo 7  has the left fork 
+philo 7  has the right fork
+philo 9  has the left fork 
+philo 9  has the right fork
 philo 1  is eating 🍝
 philo ID 1 num of plate 1
 philo 1  has release the left fork
 philo 1  has release the right fork
 philo 1  is thinking 🧠
-philo 3  has the right fork
 philo 2  has the left fork 
 philo 3  is eating 🍝
 philo ID 3 num of plate 1
@@ -26,7 +55,29 @@ philo 3  has release the left fork
 philo 3  has release the right fork
 philo 3  is thinking 🧠
 philo 2  has the right fork
+philo 4  has the left fork 
 philo 1  has the left fork 
+philo 5  is eating 🍝
+philo ID 5 num of plate 1
+philo 5  has release the left fork
+philo 4  has the right fork
+philo 6  has the left fork 
+philo 5  has release the right fork
+philo 5  is thinking 🧠
+philo 7  is eating 🍝
+philo ID 7 num of plate 1
+philo 7  has release the left fork
+philo 7  has release the right fork
+philo 7  is thinking 🧠
+philo 6  has the right fork
+philo 8  has the left fork 
+philo 9  is eating 🍝
+philo ID 9 num of plate 1
+philo 9  has release the left fork
+philo 8  has the right fork
+philo 9  has release the right fork
+philo 9  is thinking 🧠
+philo 10  has the left fork 
 philo 2  is eating 🍝
 philo ID 2 num of plate 1
 philo 2  has release the left fork
@@ -34,32 +85,71 @@ philo 2  has release the right fork
 philo 2  is thinking 🧠
 philo 1  has the right fork
 philo 3  has the left fork 
+philo 4  is eating 🍝
+philo ID 4 num of plate 1
+philo 4  has release the left fork
+philo 4  has release the right fork
+philo 4  is thinking 🧠
+philo 3  has the right fork
+philo 5  has the left fork 
+philo 6  is eating 🍝
+philo ID 6 num of plate 1
+philo 6  has release the left fork
+philo 6  has release the right fork
+philo 6  is thinking 🧠
+philo 5  has the right fork
+philo 7  has the left fork 
+philo 8  is eating 🍝
+philo ID 8 num of plate 1
+philo 8  has release the left fork
+philo 8  has release the right fork
+philo 8  is thinking 🧠
+philo 7  has the right fork
+philo 9  has the left fork 
 philo 1  is eating 🍝
- philo 1  is full 🍉
+philo ID 1 num of plate 2
 philo 1  has release the left fork
 philo 1  has release the right fork
 philo 1  is thinking 🧠
-philo 3  has the right fork
 philo 2  has the left fork 
+philo 10  has the right fork
 philo 3  is eating 🍝
- philo 3  is full 🍉
+philo ID 3 num of plate 2
 philo 3  has release the left fork
 philo 3  has release the right fork
 philo 3  is thinking 🧠
 philo 2  has the right fork
+philo 4  has the left fork 
+philo 5  is eating 🍝
+philo ID 5 num of plate 2
+philo 5  has release the left fork
+philo 5  has release the right fork
+philo 5  is thinking 🧠
+philo 4  has the right fork
+philo 6  has the left fork 
+philo 7  is eating 🍝
+philo ID 7 num of plate 2
+philo 7  has release the left fork
+philo 7  has release the right fork
+philo 7  is thinking 🧠
+philo 6  has the right fork
+philo 8  has the left fork 
+philo 10  is eating 🍝
+philo ID 10 num of plate 1
+philo 10  has release the left fork
+philo 10  has release the right fork
+philo 10  is thinking 🧠
+philo 9  has the right fork
 philo 1  has the left fork 
 philo 2  is eating 🍝
- philo 2  is full 🍉
+philo ID 2 num of plate 2
 philo 2  has release the left fork
 philo 2  has release the right fork
 philo 2  is thinking 🧠
+philo 3  has the left fork 
 philo 1  has the right fork
-THEY ARE ALL DONE EATING MY GUY !!!
- ===>> voila !!!!!!!!!!!!!
-philo 1  is eating 🍝
- philo 1  is full 🍉
-philo 1  has release the left fork
-philo 1  has release the right fork
-philo 1  is thinking 🧠
- ===>> voila !!!!!!!!!!!!!
- ===>> voila !!!!!!!!!!!!!
+philo 4  is eating 🍝
+philo ID 4 num of plate 2
+philo 4  has release the left fork
+philo 4  has release the right fork
+philo 4  is thinking �

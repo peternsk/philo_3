@@ -6,7 +6,7 @@
 /*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:30:22 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/15 14:32:00 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/16 09:54:04 by peternsaka       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,19 @@
 	time since the begining on computer.
 */
 
-int main(void)
+long	actual_time(void)
 {
-	struct timeval now_time;
-	gettimeofday(&now_time, NULL);
-	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec, now_time.tv_usec);
-	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec * 1000, now_time.tv_usec * 1000);
-} 
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+		return (printf("Error time"), -1);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+// int main(void)
+// {
+// 	struct timeval now_time;
+// 	gettimeofday(&now_time, NULL);
+// 	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec, now_time.tv_usec);
+// 	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec * 1000, now_time.tv_usec * 1000);
+// } 
