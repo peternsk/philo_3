@@ -13,7 +13,7 @@ OBJS_DIR	= objs
 
 PARSING		=	philo parser check_dig_arg check_sign_arg
 
-PHILO_FUNC	=	init simulation monitoring start_thread
+PHILO_FUNC	=	init simulation monitoring start_thread time
 
 UTILS		=	ft_atol ext_err print_statement
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:54:10 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/12 12:11:52 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/16 09:47:09 by peternsaka       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ void    			*start_thread(t_global *glb_s);
 void				eat_func(t_philo *philo);
 void				*simulation(void *arg);
 void				*monitoring(void *arg);
+
+/*-- time_func --*/
+long				actual_time(void);
 
 /*-- utils --*/
 long				ft_atol(char *str);
