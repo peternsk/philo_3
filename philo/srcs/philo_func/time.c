@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
+/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:30:22 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/16 09:54:04 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/17 14:14:23 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
-
-/*
-	time since the begining on computer.
-*/
 
 long	actual_time(void)
 {
@@ -25,10 +21,23 @@ long	actual_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-// int main(void)
-// {
-// 	struct timeval now_time;
-// 	gettimeofday(&now_time, NULL);
-// 	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec, now_time.tv_usec);
-// 	printf("second : %ld\nmicrosecond : %d\n", now_time.tv_sec * 1000, now_time.tv_usec * 1000);
-// } 
+long	last_time_eat(t_philo *philo)
+{
+	long time;
+	
+	time = actual_time();
+	philo->lte = time;
+}
+
+bool	times_up(t_philo *philo)
+{
+	long chrono;
+	long act_time;
+	
+	act_time = actual_time();
+	chrono = act_time - philo->lte;
+	if(chrono > philo->glb_s->time_to_die)
+		return(true);
+	else
+		return(false);
+}
