@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:30:22 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/17 14:14:23 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:04:45 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	actual_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-long	last_time_eat(t_philo *philo)
+void	last_time_eat(t_philo *philo)
 {
 	long time;
 	
@@ -29,7 +29,7 @@ long	last_time_eat(t_philo *philo)
 	philo->lte = time;
 }
 
-bool	times_up(t_philo *philo)
+void	times_up(t_philo *philo)
 {
 	long chrono;
 	long act_time;
@@ -37,7 +37,5 @@ bool	times_up(t_philo *philo)
 	act_time = actual_time();
 	chrono = act_time - philo->lte;
 	if(chrono > philo->glb_s->time_to_die)
-		return(true);
-	else
-		return(false);
+		philo->is_dead = true;
 }
