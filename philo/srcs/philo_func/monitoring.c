@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
+/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:14:38 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/13 01:16:27 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/15 14:47:50 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void check_philo_all_full(t_global *glb_s)
             glb_s->omni_philo->all_full = true;
             pthread_mutex_unlock(&glb_s->action->check_philos);
             printf("THEY ARE ALL DONE EATING MY GUY !!!\n");
-            break;  // Exit the loop after setting all_full to true
+            break;
         }
         i++;
     }

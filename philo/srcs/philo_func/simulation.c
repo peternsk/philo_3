@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
+/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/13 01:15:44 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/15 10:52:17 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	eat_func(t_philo *philo) // a travailler
 	//eating 
 	pthread_mutex_lock(&philo->glb_s->action->eating);
 	usleep(philo->glb_s->time_to_eat);
-	printf("philo %d %s\n", philo->id, EAT);
+	print_statement(philo, EAT);
 	count_plate(philo);
 	pthread_mutex_unlock(&philo->glb_s->action->eating);
 	
@@ -61,23 +61,6 @@ void	pause_func(t_philo *philo) // a travailler
 	printf("philo %d %s\n", philo->id, THINKING);
 	usleep(philo->glb_s->time_to_eat * 2);
 }
-
-// void	*simulation(void *arg) // a travailler
-// {
-// 	t_philo *philo;
-// 	philo = (t_philo *)arg;
-	
-// 	pthread_mutex_lock(&philo->glb_s->action->check_philos);
-// 	while(philo->glb_s->omni_philo->all_full == false)
-// 	{
-// 		pthread_mutex_unlock(&philo->glb_s->action->check_philos);
-// 		eat_func(philo);
-// 		pause_func(philo);
-// 	}
-// 	pthread_mutex_unlock(&philo->glb_s->action->check_philos);
-// 	printf(" ===>> voila !!!!!!!!!!!!!\n");
-// 	return(0);
-// }
 
 void *simulation(void *arg)
 {
