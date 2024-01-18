@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
+/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:58:01 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/16 09:49:50 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/18 16:54:13 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	if (argc == 5 || argc == 6)
 	{
-		glb_s.strt_sim_time = actual_time();
-		printf("time : %ld\n", glb_s.strt_sim_time);
-		if(parser(/*&glb_s,*/ argv) == false)
+		if(parser(argv) == false)
 			ext_err("parssing error..");
 		init_val(&glb_s, argv);
 		start_thread(&glb_s);

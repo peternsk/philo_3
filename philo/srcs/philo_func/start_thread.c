@@ -6,18 +6,19 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:10:35 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/12 12:35:43 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/18 16:55:36 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-void    *start_thread(t_global *glb_s) // a travailler
+void    *start_thread(t_global *glb_s)
 {
     int i;
 
     i = -1;
-	printf("=====> start_thread %d\n", glb_s->n_of_p);
+    glb_s->strt_sim_time = actual_time(); 
+    printf("time : %ld\n", glb_s->strt_sim_time);
     while(++i < glb_s->n_of_p)
         if(pthread_create(&glb_s->asso_philo[i].platon, NULL, simulation, &glb_s->asso_philo[i]) != 0)
             ext_err("thread create error..");
