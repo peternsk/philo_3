@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/18 17:51:46 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/18 17:55:24 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	eat_func(t_philo *philo) // a travailler
 void	pause_func(t_philo *philo) // a travailler
 {
 	print_statement(philo, SLEEP);
-	ft_usleep(philo->glb_s->time_to_die);
+	ft_usleep(philo->glb_s->time_to_sleep);
 }
 
 void	*simulation(void *arg)
