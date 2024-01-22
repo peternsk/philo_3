@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:14:38 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/18 17:53:28 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/19 09:06:22 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	check_philo_all_full(t_global *glb_s)
 	int	i;
 	int	nb_of_full;
 
-	i = 0;
+	i = -1;
 	nb_of_full = 0;
-	while (i < glb_s->n_of_p)
+	while (++i < glb_s->n_of_p)
 	{
 		pthread_mutex_lock(&glb_s->action->mtx_plate);
 		if (glb_s->asso_philo[i].is_full == true)
@@ -53,7 +53,6 @@ void	check_philo_all_full(t_global *glb_s)
 		}
 		else
 			pthread_mutex_unlock(&glb_s->action->mtx_plate);
-			
 		if (nb_of_full == glb_s->n_of_p)
 		{
 			pthread_mutex_lock(&glb_s->action->check_philos);
@@ -62,20 +61,20 @@ void	check_philo_all_full(t_global *glb_s)
 			printf("THEY ARE ALL DONE EATING MY GUY !!!\n");
 			break ;
 		}
-		i++;
 	}
 	return ;
 }
 
 void	*monitoring(void *arg)
 {
-	t_global *glb_s;
+	t_global	*glb_s;
 
 	glb_s = (t_global *)arg;
 	while (1)
 	{
 		pthread_mutex_lock(&glb_s->action->check_philos);
-		if (glb_s->omni_philo->all_full == false && glb_s->omni_philo->one_dead == false)
+		if (glb_s->omni_philo->all_full == false
+			&& glb_s->omni_philo->one_dead == false)
 		{
 			pthread_mutex_unlock(&glb_s->action->check_philos);
 			usleep(5000);
@@ -85,7 +84,7 @@ void	*monitoring(void *arg)
 		else
 		{
 			pthread_mutex_unlock(&glb_s->action->check_philos);
-			break;	
+			break ;
 		}
 	}
 	return (0);

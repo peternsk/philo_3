@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:54:10 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/18 15:50:23 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/19 09:02:49 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,14 @@ void				times_up(t_philo *philo);
 long				ft_atol(char *str);
 void				print_statement(t_philo *philo, char *stmt);
 void				ext_err(char *err_str);
+void				*clean_malloc(size_t space_nd);
+
+/*-- init --*/
+void				init_all(t_global *glb_s, char **val);
+void				init_arr_mutx(t_philo *philo, t_fork *fork, int position);
+void				init_act_mtx(t_global *glb_s);
+void				init_philo(t_global *glb_s);
+void				init_omni_philo(t_global *glb_s);
+void				init_val(t_global *glb_s, char **val);
 
 #endif

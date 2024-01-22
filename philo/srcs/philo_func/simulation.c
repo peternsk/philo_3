@@ -6,13 +6,13 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/18 17:55:24 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/19 08:46:46 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-static void	count_plate(t_philo *philo) // a travailler
+static void	count_plate(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->glb_s->action->mtx_plate);
 	if (philo->glb_s->must_eat > 0 && philo->glb_s->plate_counter == true)
@@ -32,29 +32,27 @@ static void	count_plate(t_philo *philo) // a travailler
 		pthread_mutex_unlock(&philo->glb_s->action->mtx_plate);
 }
 
-void	eat_func(t_philo *philo) // a travailler
+void	eat_func(t_philo *philo)
 {
 	
 	pthread_mutex_lock(&philo->l_fork->fork);
 	print_statement(philo, L_FORK);
 	pthread_mutex_lock(&philo->r_fork->fork);
 	print_statement(philo, R_FORK);
-
 	print_statement(philo, EAT);
 	ft_usleep(philo->glb_s->time_to_eat);
-	
 	pthread_mutex_lock(&philo->glb_s->action->eating);
 	philo->lte = actual_time() - philo->glb_s->strt_sim_time;
 	count_plate(philo);
 	pthread_mutex_unlock(&philo->glb_s->action->eating);
-
 	pthread_mutex_unlock(&philo->l_fork->fork);
 	print_statement(philo, RL_FORK);
 	pthread_mutex_unlock(&philo->r_fork->fork);
 	print_statement(philo, RR_FORK);
 }
 
-void	pause_func(t_philo *philo) // a travailler
+
+void	pause_func(t_philo *philo)
 {
 	print_statement(philo, SLEEP);
 	ft_usleep(philo->glb_s->time_to_sleep);

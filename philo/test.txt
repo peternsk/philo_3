@@ -1,0 +1,22 @@
+time : 1705671920392
+1 1  has the left fork 
+1 1  has the right fork
+1 1  is eating 🍝
+1 2  is thinking 🧠
+2 3  has the left fork 
+2 3  has the right fork
+2 3  is eating 🍝
+2 4  is thinking 🧠
+201 1  has release the left fork
+201 1  has release the right fork
+201 1  is sleeping 😴
+201 2  has the left fork 
+202 3  has release the left fork
+202 2  has the right fork
+202 4  has the left fork 
+202 4  has the right fork
+202 4  is eating 🍝
+202 3  has release the right fork
+202 3  is sleeping 😴
+202 2  is eating 🍝
+311 2  is dead 💀

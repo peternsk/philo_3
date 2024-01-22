@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:30:22 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/18 17:31:35 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/19 08:50:36 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	times_up(t_philo *philo)
 		philo->is_dead = true;
 		pthread_mutex_unlock(&philo->glb_s->action->check_philos);
 		print_statement(philo, DEAD);
-		return;
+		return ;
 	}
 	else
 		pthread_mutex_unlock(&philo->glb_s->action->check_philos);
-	return;
+	return ;
 }
 
 void	ft_usleep(long time)
 {
-	long start;
+	long	start;
 
 	start = actual_time();
 	while (actual_time() - start < time)

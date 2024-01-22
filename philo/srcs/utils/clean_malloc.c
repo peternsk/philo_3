@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   clean_malloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 09:58:01 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/19 09:05:12 by pnsaka           ###   ########.fr       */
+/*   Created: 2024/01/19 08:52:27 by pnsaka            #+#    #+#             */
+/*   Updated: 2024/01/19 08:52:57 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-int	main(int argc, char **argv)
+void	*clean_malloc(size_t space_nd)
 {
-	t_global glb_s;
-	
-	(void)argv;
-	if (argc == 5 || argc == 6)
-	{
-		if(parser(argv) == false)
-			ext_err("parssing error..");
-		// if(glb_s.n_of_p == 1)
-		// 	/*routine 1*/
-		init_all(&glb_s, argv);
-		start_thread(&glb_s);
-	}
-	else
-		ext_err("missing arg\n");
-	return (0);
+	void	*ret_val;
+
+	ret_val = malloc(space_nd);
+	if (ret_val == NULL)
+		ext_err("malloc err..");
+	return (ret_val);
 }

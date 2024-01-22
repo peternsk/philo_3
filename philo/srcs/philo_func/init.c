@@ -6,23 +6,13 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 08:45:53 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/18 17:40:31 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/19 09:01:19 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-static void	*clean_malloc(size_t space_nd)
-{
-	void	*ret_val;
-
-	ret_val = malloc(space_nd);
-	if (ret_val == NULL)
-		ext_err("malloc err..");
-	return (ret_val);
-}
-
-static void	init_arr_mutx(t_philo *philo, t_fork *fork, int position)
+void	init_arr_mutx(t_philo *philo, t_fork *fork, int position)
 {
 	if (philo->id % 2 == 0)
 	{
@@ -32,7 +22,8 @@ static void	init_arr_mutx(t_philo *philo, t_fork *fork, int position)
 	philo->r_fork = &fork[(position + 1) % philo->glb_s->n_of_p];
 	philo->l_fork = &fork[position];
 }
-static void	init_act_mtx(t_global *glb_s)
+
+void	init_act_mtx(t_global *glb_s)
 {
 	if (pthread_mutex_init(&glb_s->action->eating, NULL) != 0)
 		return ;
@@ -46,7 +37,7 @@ static void	init_act_mtx(t_global *glb_s)
 		return ;
 }
 
-static void	init_philo(t_global *glb_s)
+void	init_philo(t_global *glb_s)
 {
 	t_philo	*platon;
 	int		i;
@@ -56,7 +47,6 @@ static void	init_philo(t_global *glb_s)
 	{
 		platon = glb_s->asso_philo + i;
 		platon->id = i + 1;
-		printf("platon ID  %d\n", platon->id);
 		platon->is_dead = false;
 		platon->is_full = false;
 		platon->plates = 0;
@@ -66,7 +56,7 @@ static void	init_philo(t_global *glb_s)
 	}
 }
 
-static void	init_omni_philo(t_global *glb_s)
+void	init_omni_philo(t_global *glb_s)
 {
 	glb_s->omni_philo->all_full = false;
 	glb_s->omni_philo->one_dead = false;
@@ -98,7 +88,4 @@ void	init_val(t_global *glb_s, char **val)
 			return ;
 		glb_s->forks[i].id = i;
 	}
-	init_philo(glb_s);
-	init_omni_philo(glb_s);
-	init_act_mtx(glb_s);
 }
