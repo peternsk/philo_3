@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 08:45:53 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/19 09:01:19 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/22 15:48:08 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	init_val(t_global *glb_s, char **val)
 {
 	int	i;
 
-	i = -1;
 	glb_s->n_of_p = ft_atol(val[1]);
 	glb_s->time_to_die = ft_atol(val[2]);
 	glb_s->time_to_eat = ft_atol(val[3]);
@@ -78,11 +77,12 @@ void	init_val(t_global *glb_s, char **val)
 	}
 	else
 		glb_s->plate_counter = false;
-	glb_s->omni_philo = clean_malloc(sizeof(t_omni_philo) * 1);
-	glb_s->asso_philo = clean_malloc(sizeof(t_philo) * (glb_s->n_of_p));
-	glb_s->forks = clean_malloc(sizeof(t_fork) * (glb_s->n_of_p));
-	glb_s->action = clean_malloc(sizeof(t_mtx_act) * 1);
-	while (++i <= glb_s->n_of_p)
+	glb_s->omni_philo = malloc((sizeof(t_omni_philo) * 1));
+	glb_s->asso_philo = malloc(sizeof(t_philo) * (glb_s->n_of_p));
+	glb_s->forks = malloc(sizeof(t_fork) * (glb_s->n_of_p));
+	glb_s->action = malloc(sizeof(t_mtx_act) * 1);
+	i = -1;
+	while (++i < glb_s->n_of_p)
 	{
 		if (pthread_mutex_init(&glb_s->forks[i].fork, NULL) != 0)
 			return ;

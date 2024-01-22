@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 09:54:10 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/19 09:02:49 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/22 15:10:12 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ typedef struct s_global
 	int				must_eat;
 	bool			plate_counter;
 	long			strt_sim_time;
+	
 	pthread_mutex_t	eat;
 	pthread_mutex_t	sleep;
+	
 	t_mtx_act		*action;
 	t_fork			*forks;
 	t_philo			*asso_philo;
@@ -87,7 +89,7 @@ typedef struct s_global
 /* parsing */
 bool				check_dig_arg(char *str);
 bool				check_sign_arg(char *str);
-bool				parser(/*t_global *glb_s,*/ char **av);
+bool				parser(char **av);
 
 /*-- philo_func --*/
 void				init_val(t_global *glb_s, char **val);
@@ -101,6 +103,12 @@ long				actual_time(void);
 void				ft_usleep(long time);
 void				last_time_eat(t_philo *philo);
 void				times_up(t_philo *philo);
+
+/*-- solo philo --*/
+void				one_philo(t_global *glb_s);
+
+/*-- free --*/
+void   			 	free_struct(t_philo *philo);
 
 /*-- utils --*/
 long				ft_atol(char *str);

@@ -2,7 +2,7 @@
 
 NAME    	= philo
 CC      	= gcc
-FLAGS   	= -Wall -Werror -Wextra -pthread -fsanitize=thread -g
+FLAGS   	= -Wall -Werror -Wextra -pthread -g #-fsanitize=thread -o2
 RM      	= rm -rf
 
 #--- GROUP ---#
@@ -13,7 +13,7 @@ OBJS_DIR	= objs
 
 PARSING		=	philo parser check_dig_arg check_sign_arg
 
-PHILO_FUNC	=	init simulation monitoring start_thread time init_all
+PHILO_FUNC	=	init simulation monitoring start_thread time init_all solo_simulation free
 
 UTILS		=	ft_atol ext_err print_statement clean_malloc
 

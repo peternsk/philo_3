@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:10:35 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/19 08:49:45 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/22 11:57:49 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*start_thread(t_global *glb_s)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	glb_s->strt_sim_time = actual_time();

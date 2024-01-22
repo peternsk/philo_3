@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 00:14:38 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/19 09:06:22 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/22 12:14:36 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	check_philo_all_full(t_global *glb_s)
 			pthread_mutex_lock(&glb_s->action->check_philos);
 			glb_s->omni_philo->all_full = true;
 			pthread_mutex_unlock(&glb_s->action->check_philos);
-			printf("THEY ARE ALL DONE EATING MY GUY !!!\n");
+			printf("THEY ARE ALL DONE EATING !!! 🍽️\n");
 			break ;
 		}
 	}

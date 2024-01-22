@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peternsaka <peternsaka@student.42.fr>      +#+  +:+       +#+        */
+/*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:52:25 by pnsaka            #+#    #+#             */
-/*   Updated: 2024/01/05 19:09:20 by peternsaka       ###   ########.fr       */
+/*   Updated: 2024/01/22 11:58:11 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long	ft_atol(char *str)
 {
-	int i;
-	long nb;
+	int		i;
+	long	nb;
 
 	i = 0;
 	nb = 0;
@@ -28,7 +28,7 @@ long	ft_atol(char *str)
 		nb = (nb * 10) + (str[i] - 48);
 		i++;
 	}
-	if(nb > INT_MAX || nb < INT_MIN)
+	if (nb > INT_MAX || nb < INT_MIN)
 		ext_err("number not an int..");
 	return (nb);
 }

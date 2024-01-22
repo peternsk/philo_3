@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:59:10 by peternsaka        #+#    #+#             */
-/*   Updated: 2024/01/19 08:46:46 by pnsaka           ###   ########.fr       */
+/*   Updated: 2024/01/22 11:59:56 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	count_plate(t_philo *philo)
 
 void	eat_func(t_philo *philo)
 {
-	
 	pthread_mutex_lock(&philo->l_fork->fork);
 	print_statement(philo, L_FORK);
 	pthread_mutex_lock(&philo->r_fork->fork);
@@ -51,7 +50,6 @@ void	eat_func(t_philo *philo)
 	print_statement(philo, RR_FORK);
 }
 
-
 void	pause_func(t_philo *philo)
 {
 	print_statement(philo, SLEEP);
@@ -63,7 +61,7 @@ void	*simulation(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if(philo->id % 2 == 0)
+	if (philo->id % 2 == 0)
 	{
 		print_statement(philo, THINKING);
 		ft_usleep(philo->glb_s->time_to_eat / 10);
@@ -71,14 +69,15 @@ void	*simulation(void *arg)
 	while (1)
 	{
 		pthread_mutex_lock(&philo->glb_s->action->check_philos);
-		if (philo->glb_s->omni_philo->all_full == false && philo->glb_s->omni_philo->one_dead == false)
+		if (philo->glb_s->omni_philo->all_full == false
+			&& philo->glb_s->omni_philo->one_dead == false)
 		{
 			pthread_mutex_unlock(&philo->glb_s->action->check_philos);
 			eat_func(philo);
 			pause_func(philo);
 		}
 		else
-		{	
+		{
 			pthread_mutex_unlock(&philo->glb_s->action->check_philos);
 			break ;
 		}
